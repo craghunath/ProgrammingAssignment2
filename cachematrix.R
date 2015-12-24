@@ -29,7 +29,7 @@ makeCacheMatrix <- function( x = matrix() ) {
 }
 
 # "cacheSolve" input is  "makeCacheMatrix( square-invertable-matrix )",
-# output is a inverse of the given matrix.
+# output is a inverse of the square-invertable-matrix.
 
 # "explicit.matrix" and "computed.inverse"
 # are two more arguments for "cacheSolve"
