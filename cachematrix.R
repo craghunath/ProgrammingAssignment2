@@ -1,7 +1,11 @@
-# makeCacheMatrix is a list of functions
-# to cache the inverse of a square-invertable-matrix.
+# makeCacheMatrix is a list of functions 
+# to cache the inverse of a invertable-square-matrix (only).
 
-# set(), get(), setinverse(), getinverse()
+# set() -- To explicitly set a invertable-square-matrix for inversion,
+# get() -- To get the invertable-square-matrix,
+# which is already input through makeCacheMatrix( invertable-square-matrix ),
+# setinverse() -- To set the inverse of a invertable-square-matrix,
+# getinverse() -- To get the inverse of a invertable-square-matrix,
 # are the functions in "makeCacheMatrix" output list.
 
 makeCacheMatrix <- function( x = matrix() ) {
@@ -28,36 +32,31 @@ makeCacheMatrix <- function( x = matrix() ) {
         , getinverse = getinverse )
 }
 
-# "cacheSolve" input is  "makeCacheMatrix( square-invertable-matrix )",
-# output is a inverse of the square-invertable-matrix.
+# "cacheSolve" input is  "makeCacheMatrix( invertable-square-matrix )",
+# output is a inverse of the invertable-square-matrix.
 
 # "explicit.matrix" and "computed.inverse"
 # are two more arguments for "cacheSolve"
 
 # A matrix can be set explicitly through input "explicit.matrix"
 #("explicit.matrix" is optional )
-  
+
 # If the inverse has already been calculated,
 # then that is input through "computed.inverse"
 # Matrix inversion is usually a costly computation.  
 
-## Also, one can check Whether a matrix is inverse of itself,
-## but I have not included this functionality.
-##if( !is.null( matrix_inverse && 
-##              x$get() %*% x$get()
-##              == diag( matrix(0, n, n) ) <- 1 )) {
 
 cacheSolve <- function( x = makeCacheMatrix()
                         , explicit.matrix = NULL
                         , computed.inverse = NULL ){
-#  
+  #  
   if( !is.null(explicit.matrix) ) x$set( explicit.matrix
                                          , computed.inverse  )
   
   matrix_inverse <- x$getinverse()
   
   if( !is.null( matrix_inverse )) {
-##    
+    ##    
     message("getting cached data")
     
     return( matrix_inverse )
@@ -71,4 +70,4 @@ cacheSolve <- function( x = makeCacheMatrix()
   
   matrix_inverse
   
-  }
+}
